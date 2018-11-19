@@ -15,6 +15,10 @@ public class Tanque {
     private int id_tipo_producao;
     private int id_pessoa;
 
+    public Tanque(){
+
+    }
+
     public Tanque(float capacidade, float tamanho, int id_tipo_producao, int id_pessoa) {
         this.capacidade = capacidade;
         this.tamanho = tamanho;

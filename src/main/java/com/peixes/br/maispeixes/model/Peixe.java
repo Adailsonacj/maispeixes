@@ -13,6 +13,10 @@ public class Peixe {
     private int id_especie;
     private int id_viveiro;
 
+    public Peixe(){
+
+    }
+
     public Peixe(int id_especie, int id_viveiro) {
         this.id_especie = id_especie;
         this.id_viveiro = id_viveiro;

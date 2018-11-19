@@ -12,6 +12,11 @@ public class TipoProducao {
     private int id;
     private String nome;
 
+    public TipoProducao(){
+
+    }
+
+
     public TipoProducao(String nome) {
         this.nome = nome;
     }

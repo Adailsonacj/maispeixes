@@ -20,6 +20,10 @@ public class Biometria {
     private int idPessoa;
     private int idPeixe;
 
+    public Biometria(){
+
+    }
+
     public Biometria(Date data, int nPeixesViveiro, int nPeixesAmostra, float pesoMedio, float tamanhoMedio, int idPessoa, int idPeixe) {
         this.data = data;
         this.nPeixesViveiro = nPeixesViveiro;

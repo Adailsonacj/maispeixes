@@ -1,7 +1,5 @@
 package com.peixes.br.maispeixes.model;
 
-import sun.util.resources.Bundles;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +14,10 @@ public class Usuario {
     private String email;
     private String senha;
     private int idPessoa;
+
+    public Usuario(){
+
+    }
 
     public Usuario(String email, String senha, int idPessoa) {
         this.email = email;

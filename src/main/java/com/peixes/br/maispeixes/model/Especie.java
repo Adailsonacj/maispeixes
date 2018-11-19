@@ -12,6 +12,11 @@ public class Especie {
     private int id;
     private String nome;
 
+    public Especie(){
+
+    }
+
+
     public Especie(String nome) {
         this.nome = nome;
     }
