@@ -1,28 +1,37 @@
 package com.peixes.br.maispeixes.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private int id;
     private String email;
     private String senha;
-    private int idPessoa;
+    @JoinColumn(name = "id_pessoa")
+    @NotNull
+    private Pessoa idPessoa;
 
     public Usuario(){
 
     }
 
-    public Usuario(String email, String senha, int idPessoa) {
+    public Usuario(String email, String senha, @NotNull Pessoa idPessoa) {
         this.email = email;
         this.senha = senha;
         this.idPessoa = idPessoa;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -41,11 +50,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public int getIdPessoa() {
+    public Pessoa getId_pessoa() {
         return idPessoa;
     }
 
-    public void setIdPessoa(int idPessoa) {
+    public void setId_pessoa(Pessoa idPessoa) {
         this.idPessoa = idPessoa;
     }
 }

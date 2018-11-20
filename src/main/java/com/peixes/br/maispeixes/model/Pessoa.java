@@ -1,19 +1,17 @@
 package com.peixes.br.maispeixes.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_pessoa")
     private int id;
     private String nome;
     private String cpf;
 
-    public Pessoa(){
+    public Pessoa() {
 
     }
 

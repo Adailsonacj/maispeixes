@@ -1,9 +1,7 @@
 package com.peixes.br.maispeixes.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -11,27 +9,30 @@ public class Biometria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_biometria")
     private int id;
     private Date data;
     private int nPeixesViveiro;
     private int nPeixesAmostra;
-    private float pesoMedio;
-    private float tamanhoMedio;
-    private int idPessoa;
-    private int idPeixe;
+    @ManyToOne
+    @JoinColumn(name = "id_pessoa")
+    @NotNull
+    private Pessoa id_pessoa;
+    @ManyToOne
+    @JoinColumn(name = "id_tanque")
+    @NotNull
+    private Viveiro id_tanque;
 
-    public Biometria(){
+    public Biometria() {
 
     }
 
-    public Biometria(Date data, int nPeixesViveiro, int nPeixesAmostra, float pesoMedio, float tamanhoMedio, int idPessoa, int idPeixe) {
+    public Biometria(Date data, int nPeixesViveiro, int nPeixesAmostra, @NotNull Pessoa id_pessoa, @NotNull Viveiro id_tanque) {
         this.data = data;
         this.nPeixesViveiro = nPeixesViveiro;
         this.nPeixesAmostra = nPeixesAmostra;
-        this.pesoMedio = pesoMedio;
-        this.tamanhoMedio = tamanhoMedio;
-        this.idPessoa = idPessoa;
-        this.idPeixe = idPeixe;
+        this.id_pessoa = id_pessoa;
+        this.id_tanque = id_tanque;
     }
 
     public int getId() {
@@ -66,35 +67,19 @@ public class Biometria {
         this.nPeixesAmostra = nPeixesAmostra;
     }
 
-    public float getPesoMedio() {
-        return pesoMedio;
+    public Pessoa getId_pessoa() {
+        return id_pessoa;
     }
 
-    public void setPesoMedio(float pesoMedio) {
-        this.pesoMedio = pesoMedio;
+    public void setId_pessoa(Pessoa id_pessoa) {
+        this.id_pessoa = id_pessoa;
     }
 
-    public float getTamanhoMedio() {
-        return tamanhoMedio;
+    public Viveiro getId_tanque() {
+        return id_tanque;
     }
 
-    public void setTamanhoMedio(float tamanhoMedio) {
-        this.tamanhoMedio = tamanhoMedio;
-    }
-
-    public int getIdPessoa() {
-        return idPessoa;
-    }
-
-    public void setIdPessoa(int idPessoa) {
-        this.idPessoa = idPessoa;
-    }
-
-    public int getIdPeixe() {
-        return idPeixe;
-    }
-
-    public void setIdPeixe(int idPeixe) {
-        this.idPeixe = idPeixe;
+    public void setId_tanque(Viveiro id_tanque) {
+        this.id_tanque = id_tanque;
     }
 }
