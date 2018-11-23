@@ -20,10 +20,10 @@ public class PessoaCon {
 
     @PostMapping(path = "/add")
     public @ResponseBody
-    String insertUser(@RequestParam String nome, @RequestParam String cpf) {
+    int insertUser(@RequestParam String nome, @RequestParam String cpf) {
         Pessoa n = new Pessoa(nome, cpf);
         pessoaRepo.save(n);
-        return "Saved";
+        return n.getId();
     }
 
     @DeleteMapping("/delete")

@@ -12,18 +12,20 @@ public class Usuario {
     private int id;
     private String email;
     private String senha;
+    @MapsId("id_pessoa")
+    @OneToOne
     @JoinColumn(name = "id_pessoa")
-    @NotNull
     private Pessoa idPessoa;
+    private int id_pessoa;
 
     public Usuario(){
 
     }
 
-    public Usuario(String email, String senha, @NotNull Pessoa idPessoa) {
+    public Usuario(String email, String senha, @NotNull int id_pessoa) {
         this.email = email;
         this.senha = senha;
-        this.idPessoa = idPessoa;
+        this.id_pessoa = id_pessoa;
     }
 
     public int getId() {
@@ -50,11 +52,19 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Pessoa getId_pessoa() {
+    public Pessoa getIdPessoa() {
         return idPessoa;
     }
 
-    public void setId_pessoa(Pessoa idPessoa) {
+    public void setIdPessoa(Pessoa idPessoa) {
         this.idPessoa = idPessoa;
+    }
+
+    public int getId_pessoa() {
+        return id_pessoa;
+    }
+
+    public void setId_pessoa(int id_pessoa) {
+        this.id_pessoa = id_pessoa;
     }
 }

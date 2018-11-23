@@ -18,13 +18,11 @@ public class UsuarioCon {
         return usuarioRepo.findAll();
     }
 
-    @GetMapping(path="/add") // Map ONLY GET Requests
-    public @ResponseBody String insertUser (@RequestParam String nome , @RequestParam String autor) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
-
-        //Livro n = new Livro(nome, autor);
-        //livroRepository.save(n);
-        return "Saved";
+    @PostMapping(path="/add")
+    public @ResponseBody String insertUser (@RequestParam String email ,
+                                            @RequestParam String senha, @RequestParam int idPessoa) {
+        Usuario n = new Usuario(email, senha, idPessoa);
+        usuarioRepo.save(n);
+        return "Saved: id = " +n.getId();
     }
 }
